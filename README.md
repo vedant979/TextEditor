@@ -12,5 +12,4 @@ This program can do the following tasks:
 * Update Data
 * Append Data
 * Search Data
-* Undo
-* Redo
+
