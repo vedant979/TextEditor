@@ -18,4 +18,5 @@ This program can do the following tasks:
 * Save File
 * Edit Existing File
 * Read File
+* Open File
 
