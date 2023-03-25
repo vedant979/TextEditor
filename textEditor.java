@@ -2,10 +2,13 @@ package PROJECT_Text_Editor;
 
 
 
+import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import java.io.File;
+import java.io.*;
+import java.awt.desktop.*;
+
 
 /*---------------LINKED-LIST-------------------*/
 class linkedList{
@@ -485,6 +488,7 @@ class textEditor extends linkedList {
             System.out.println("13. Save File");
             System.out.println("14. Edit Existing File");
             System.out.println("15. Read File");
+            System.out.println("16. Open File");
 
             System.out.println();
             System.out.println("-----INFO-----");
@@ -966,7 +970,7 @@ class textEditor extends linkedList {
             }
             else if(selection==15){
                 list.deleteEntireData();
-                System.out.println("Which one would you like to open->");
+                System.out.println("Which one would you like to Read->");
                 int count=1;
                 for(int i =0;i<fileList.size();i++){
                     System.out.println(count +" "+fileList.get(i));
@@ -990,11 +994,42 @@ class textEditor extends linkedList {
                 }
                 list.printData();
             }
+            else if(selection==16){
+                System.out.println("Which one would you like to Open->");
+                int count=1;
+                for(int i =0;i<fileList.size();i++){
+                    System.out.println(count +" "+fileList.get(i));
+                    count++;
+                }
+                System.out.println("Enter the Name of File to Open");
+                String fileName = scan.next();
+                try{
+                    File file = new File(fileName);
+                    if(!Desktop.isDesktopSupported())
+                    {
+                        System.out.println("not supported");
+                        return;
+                    }
+                    Desktop desktop = Desktop.getDesktop();
+                    if(file.exists())  {
+                        desktop.open(file);
+                    }
+                }catch (Exception e){
+                        e.printStackTrace();
+                        }
+            }
             else{
-
+//                System.out.println(fileList);
+//                undo.print();
+//                System.out.println(arr1);
+//                System.out.println(arr);
                 System.out.println("-->NOTE:");
                 System.out.println("    THERE IS NO SUCH OPTION PRESENT AT THE TIME.");
             }
         }
     }
 }
+
+
+
+
